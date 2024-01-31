@@ -1,34 +1,34 @@
-# Ultimate cyber CLI guide. Chain: bostrom
+# Ultimate deepchain CLI guide. Chain: deep
 
-## Install cyber client
+## Install deepchain client
 
-It is possible to interact with cyber even if you don't have your own node. All you need to do is install `cyber` client on your machine using the script below, paste it in the console (currently Linux supported):
+It is possible to interact with deepchain even if you don't have your own node. All you need to do is install `deepchain` client on your machine using the script below, paste it in the console (currently Linux supported):
 
 ```bash
 bash < <(curl -s https://raw.githubusercontent.com/cybercongress/go-cyber/main/scripts/install_cyber.sh)
 ```
 
-After installation, you will be able to use `cyber` to [import accounts](#account-management), create links or swap tokens.
+After installation, you will be able to use `deepchain` to [import accounts](#account-management), create links or swap tokens.
 
-In case you have your own node, which is already running inside Docker container, please add `docker exec -ti container-name` before every cyber command:
+In case you have your own node, which is already running inside Docker container, please add `docker exec -ti container-name` before every deepchain command:
 
 ```bash
-docker exec -ti bostrom cyber --help
+docker exec -ti deep deepchain --help
 ```
 
-First of all, I would like to encourage you to use the  `--help` feature if you want to have a better experience using cyber. This is a really easy way to find all the necessary commands with the appropriate options and flags.
+First of all, I would like to encourage you to use the  `--help` feature if you want to have a better experience using deepchain. This is a really easy way to find all the necessary commands with the appropriate options and flags.
 
 For example, you can enter:
 
 ```bash
-cyber --help
+deepchain --help
 ```
 
 You should see this message:
 
 ```bash
 Usage:
-  cyber [command]
+  deepchain [command]
 
 Available Commands:
   add-genesis-account Add a genesis account to genesis.json
@@ -55,15 +55,15 @@ Available Commands:
 The help feature works like a pyramid, you can use it with any command to find available options, subcommands and flags. For example, lets explore the `query` subcommands:
 
 ```bash
-cyber query --help
+deepchain query --help
 ```
 
 You can see the structure of the subcommand:
 
 ```bash
 Usage:
-  cyber query [flags]
-  cyber query [command]
+  deepchain query [flags]
+  deepchain query [command]
 ```
 
 And the available subcommands and flags:
@@ -113,22 +113,22 @@ Global Flags:
       --log_level string    The logging level (trace|debug|info|warn|error|fatal|panic) (default "info")
       --trace               print out full stack trace on errors
 
-Use "cyber query [command] --help" for more information about a command.
+Use "deepchain query [command] --help" for more information about a command.
 
 ```
 
 Let's explore the `bank` subcommand:
 
 ```bash
-cyber query bank --help
+deepchain query bank --help
 ```
 
 We can see all of the options available for these subcommands, names and account address:
 
 ```bash
 Usage:
-  cyber query bank [flags]
-  cyber query bank [command]
+  deepchain query bank [flags]
+  deepchain query bank [command]
 
 Available Commands:
   balances       Query for account balances by address
@@ -140,7 +140,7 @@ In most cases you will need just two extra flags:
 
 ```bash
 --from=<your_key_name> \
---chain-id=bostrom \
+--chain-id=deep \
 --node=<rpc_node_path>
 ```
 
@@ -192,7 +192,7 @@ That's it. This is a very useful tool for using cyber and troubleshooting.
 Return the set of all active and jailed validators:
 
 ```bash
-cyber query staking validators 
+deepchain query staking validators 
 ```
 
 ### Show chain status
@@ -200,13 +200,13 @@ cyber query staking validators
 Return general chain information:
 
 ```bash
- cyber status
+ deepchain status
 ```
 
 ### Distribution params
 
 ```bash
- cyber query distribution params 
+ deepchain query distribution params 
 ```
 
 ### Staking params
@@ -214,13 +214,13 @@ Return general chain information:
 Chain staking info:
 
 ```bash
- cyber query staking params 
+ deepchain query staking params 
 ```
 
 ### Staking pool
 
 ```bash
- cyber query staking pool 
+ deepchain query staking pool 
 ```
 
 ## Account management
@@ -228,13 +228,13 @@ Chain staking info:
 ### Import an account with a seed phrase and store it in the local keystore
 
 ```bash
- cyber keys add <your_key_name> --recover
+ deepchain keys add <your_key_name> --recover
 ```
 
 ### Create a new account
 
 ```bash
- cyber keys add <your_key_name>
+ deepchain keys add <your_key_name>
 ```
 
 ### Show account information
@@ -242,7 +242,7 @@ Chain staking info:
 Name, address and the public key of the current account
 
 ```bash
- cyber keys show <your_key_name>
+ deepchain keys show <your_key_name>
 ```
 
 ### Show account balance
@@ -250,26 +250,26 @@ Name, address and the public key of the current account
 Return account number and amount of tokens.
 
 ```bash
- cyber query bank balances <your_key_address>
+ deepchain query bank balances <your_key_address>
 ```
 
 ### List existing keys
 
-Return all the existing keys in cyber:
+Return all the existing keys in deepchain:
 
 ```bash
- cyber keys list
+ deepchain keys list
 ```
 
-### Delete account from cyber
+### Delete account from deepchain
 
 ```bash
- cyber keys delete <deleting_key_name>
+ deepchain keys delete <deleting_key_name>
 ```
 
 ### Keyring manipulation settings
 
-**Important note**: Starting with v.38, Cosmos-SDK uses os-native keyring to store all of your keys. We've noticed that in certain cases it does not work well by default (for example if you don't have any GUI installed on your machine). If during the execution `cyber keys add` command, you are getting this type of error:
+**Important note**: Starting with v.38, Cosmos-SDK uses os-native keyring to store all of your keys. We've noticed that in certain cases it does not work well by default (for example if you don't have any GUI installed on your machine). If during the execution `deepchain keys add` command, you are getting this type of error:
 
 ```bash
 panic: No such interface 'org.freedesktop.DBus.Properties' on object at path /
@@ -293,22 +293,22 @@ You will have to use another keyring backend to keep your keys.
 In that case you'll have to use file based keyring by adding the `--keyring-backend file` option to every key manipulation command:
 
 ```bash
-cyber keys add key_name --keyring-backend file
+deepchain keys add key_name --keyring-backend file
 ```
 
-That means that you've set your keyring-backend to a local file. *Note*, in this case, all the keys in your keyring will be encrypted using the same password. If you would like to set up a unique password for each key, you should set a unique `--home` folder for each key. To do that, just use `--home=/<unique_path_to_key_folder>/` with setup keyring backend and at all interactions with keys when using cyber:
+That means that you've set your keyring-backend to a local file. *Note*, in this case, all the keys in your keyring will be encrypted using the same password. If you would like to set up a unique password for each key, you should set a unique `--home` folder for each key. To do that, just use `--home=/<unique_path_to_key_folder>/` with setup keyring backend and at all interactions with keys when using deepchain:
 
 ```bash
-cyber keys add <your_second_key_name> --keyring-backend file --home=/<unique_path_to_key_folder>/
-cyber keys list --home=/<unique_path_to_key_folder>/
+deepchain keys add <your_second_key_name> --keyring-backend file --home=/<unique_path_to_key_folder>/
+deepchain keys list --home=/<unique_path_to_key_folder>/
 ```
 
 ### Send tokens
 
 ```bash
-cyber tx bank send [from_key_or_address] [to_address] [amount] \
+deepchain tx bank send [from_key_or_address] [to_address] [amount] \
 --from=<your_key_name> \
---chain-id=bostrom
+--chain-id=deep
 ```
 
 ### Linking content
@@ -316,15 +316,15 @@ cyber tx bank send [from_key_or_address] [to_address] [amount] \
 Only IPFS hashes are available to use as CIDs
 
 ```bash
-cyber tx graph cyberlink [cid-from] [cid-to] [flags] \
+deepchain tx graph cyberlink [cid-from] [cid-to] [flags] \
 --from=<your_key_name> \
---chain-id=bostrom
+--chain-id=deep
 ```
 
 Real command example:
 
 ```bash 
-cyber tx graph cyberlink QmWZYRj344JSLShtBnrMS4vw5DQ2zsGqrytYKMqcQgEneB QmfZwbahFLTcB3MTMT8TA8si5khhRmzm7zbHToo4WVK3zn --from fuckgoogle --chain-id bostrom --yes
+deepchain tx graph cyberlink QmWZYRj344JSLShtBnrMS4vw5DQ2zsGqrytYKMqcQgEneB QmfZwbahFLTcB3MTMT8TA8si5khhRmzm7zbHToo4WVK3zn --from fuckgoogle --chain-id deep --yes
 ```
 
 ## Validator commands
@@ -332,58 +332,58 @@ cyber tx graph cyberlink QmWZYRj344JSLShtBnrMS4vw5DQ2zsGqrytYKMqcQgEneB QmfZwbah
 ### Get all validators
 
 ```bash
- cyber query staking validators 
+ deepchain query staking validators 
 ```
 
 ### State of a current validator
 
 ```bash
-cyber query staking validator <operator_address>
+deepchain query staking validator <operator_address>
 ```
 
 ### Return all delegations to a validator
 
 ```bash
- cyber query staking delegations-to <operator_address>
+ deepchain query staking delegations-to <operator_address>
 ```
 
 ### Edit the commission in an existing validator account
 
 ```bash
- cyber tx staking edit-validator \
+ deepchain tx staking edit-validator \
   --from=<your_key_name> \
   --commission-rate=<new_comission_rate_percentage> \
-  --chain-id=bostrom
+  --chain-id=deep
 ```
 
 ### Withdraw the commission for any delegation
 
 ```bash
- cyber tx distribution withdraw-rewards <operator_address> --commission \
+ deepchain tx distribution withdraw-rewards <operator_address> --commission \
   --from=<your_key_name> \
-  --chain-id=bostrom
+  --chain-id=deep
 ```
 
 ### Edit the site and description for an existing validator account
 
 ```bash
- cyber tx staking edit-validator \
+ deepchain tx staking edit-validator \
   --from=<your_key_name> \
   --details="<description>" \
   --website=<your_website> \
-  --chain-id=bostrom
+  --chain-id=deep
 ```
 
 ### Unjail a validator previously jailed for downtime
 
 ```bash
- cyber tx slashing unjail --from=<your_key_name> --chain-id=bostrom
+ deepchain tx slashing unjail --from=<your_key_name> --chain-id=deep
 ```
 
 ### Get info about a redelegation process from a validator
 
 ```bash
- cyber query staking redelegations-from <operator_address>
+ deepchain query staking redelegations-from <operator_address>
 ```
 
 ## Delegator commands
@@ -391,57 +391,57 @@ cyber query staking validator <operator_address>
 ### Return distribution delegator rewards for a specified validator
 
 ```bash
- cyber query distribution rewards <delegator_address> <operator_address>
+ deepchain query distribution rewards <delegator_address> <operator_address>
 ```
 
 ### Return delegator shares for the specified validator
 
 ```bash
- cyber query staking delegation <delegator_address> <operator_address>
+ deepchain query staking delegation <delegator_address> <operator_address>
 ```
 
 ### Return all delegations made from a delegator
 
 ```bash
- cyber query staking delegations <delegator_address>
+ deepchain query staking delegations <delegator_address>
 ```
 
 ### Return all unbonding delegations from a validator
 
 ```bash
- cyber query staking unbonding-delegations-from <operator_address>
+ deepchain query staking unbonding-delegations-from <operator_address>
 ```
 
 ### Withdraw rewards for any delegation
 
 ```bash
- cyber tx distribution withdraw-rewards <operator_address> \
+ deepchain tx distribution withdraw-rewards <operator_address> \
   --from=<your_key_name> \
-  --chain-id=bostrom
+  --chain-id=deep
 ```
 
 ### Withdraw all delegation rewards
 
 ```bash
- cyber tx distribution withdraw-all-rewards \
+ deepchain tx distribution withdraw-all-rewards \
   --from=<your_key_name> \
-  --chain-id=bostrom
+  --chain-id=deep
 ```
 
 ### Change the default withdrawal address for rewards associated with an address
 
 ```bash
- cyber tx distribution set-withdraw-addr <your_new_address> \
+ deepchain tx distribution set-withdraw-addr <your_new_address> \
   --from=<your_key_name> \
-  --chain-id=bostrom
+  --chain-id=deep
 ```
 
 ### Delegate liquid tokens to a validator
 
 ```bash
- cyber tx staking delegate <operator_address> <amount_boot> \
+ deepchain tx staking delegate <operator_address> <amount_boot> \
   --from=<your_key_name> \
-  --chain-id=bostrom
+  --chain-id=deep
 ```
 
 ### Redelegate illiquid tokens from one validator to another in absolute BOOT value
@@ -449,17 +449,17 @@ cyber query staking validator <operator_address>
 > There is a 4-day unbonding period
 
 ```bash
- cyber tx staking redelegate <old_operator_address> <new_operator_address> <amount_boot> \
+ deepchain tx staking redelegate <old_operator_address> <new_operator_address> <amount_boot> \
  --from=<your_key_name> \
- --chain-id=bostrom
+ --chain-id=deep
 ```
 
 ### Redelegate illiquid tokens from one validator to another in percentages
 
 ```bash
- cyber tx staking redelegate <old_operator_address> <new_operator_address> <shares_percentage>
+ deepchain tx staking redelegate <old_operator_address> <new_operator_address> <shares_percentage>
   --from=<your_key_name> \
-  --chain-id=bostrom
+  --chain-id=deep
 ```
 
 ### Unbond shares from a validator in absolute BOOT value
@@ -467,9 +467,9 @@ cyber query staking validator <operator_address>
 > 8 days for unbonding
 
 ```bash
- cyber tx staking unbond <operator_address> <amount_boot>
+ deepchain tx staking unbond <operator_address> <amount_boot>
   --from=<your_key_name> \
-  --chain-id=bostrom
+  --chain-id=deep
 ```
 
 ### Unbond shares from a validator in percentages
@@ -477,33 +477,33 @@ cyber query staking validator <operator_address>
 > 8 days for unbonding
 
 ```bash
- cyber tx staking unbond <operator_address> <shares_percentage>
+ deepchain tx staking unbond <operator_address> <shares_percentage>
   --from=<your_key_name> \
-  --chain-id=bostrom
+  --chain-id=deep
 ```
 
 ### Get info about the unbonding delegation process to any validator
 
 ```bash
- cyber query staking unbonding-delegation <delegator_address> <operator_address>
+ deepchain query staking unbonding-delegation <delegator_address> <operator_address>
 ```
 
 ### Get info about the unbonding delegation process to all unbonded validators
 
 ```bash
- cyber query staking unbonding-delegation <delegator_address>
+ deepchain query staking unbonding-delegation <delegator_address>
 ```
 
 ### Get info about redelegation process from to current validator
 
 ```bash
- cyber query staking redelegation <delegator_address> <old_operator_address> <new_operator_address>
+ deepchain query staking redelegation <delegator_address> <old_operator_address> <new_operator_address>
 ```
 
 ### Get the info about all the redelegation processes by a delegator
 
 ```bash
- cyber query staking redelegations <delegator_address>
+ deepchain query staking redelegations <delegator_address>
 ```
 
 ## Governance and voting
@@ -511,49 +511,49 @@ cyber query staking validator <operator_address>
 ### Query specific proposal
 
 ```bash
-cyber q gov proposal <proposal_id> 
+deepchain q gov proposal <proposal_id> 
 ```
 
 ### Query all proposals
 
 ```bash
-cyber q gov proposals 
+deepchain q gov proposals 
 ```
 
 ### Query votes on proposal
 
 ```bash
-cyber q gov votes 
+deepchain q gov votes 
 ```
 
 ### Query parameters from governance module
 
 ```bash
-cyber q gov params
+deepchain q gov params
 ```
 
 ### Vote for specific proposal
 
 ```bash
-cyber tx gov vote <proposal_id> <vote_option:_yes_no_abstain> \
+deepchain tx gov vote <proposal_id> <vote_option:_yes_no_abstain> \
 --from=<your_key_name> \
---chain-id=bostrom
+--chain-id=deep
 ```
 
 ### Submit text proposal
 
 ```bash
-cyber tx gov submit-proposal --title="Test Proposal" --description="My awesome proposal" --type="Text" --deposit="10boot" \
+deepchain tx gov submit-proposal --title="Test Proposal" --description="My awesome proposal" --type="Text" --deposit="10boot" \
 --from=<your_key_name> \
---chain-id=bostrom
+--chain-id=deep
 ```
 
 ### Submit community spend proposal
 
 ```bash
-cyber tx gov submit-proposal community-pool-spend <path/to/proposal.json> \
+deepchain tx gov submit-proposal community-pool-spend <path/to/proposal.json> \
 --from=<key_or_address> \
---chain-id=bostrom
+--chain-id=deep
 ```
 
 Where `proposal.json` is a file, structured in following way:
@@ -581,9 +581,9 @@ Where `proposal.json` is a file, structured in following way:
 ### Submit chain parameters change proposal
 
 ```bash
-cyber tx gov submit-proposal param-change <path/to/proposal.json> \
+deepchain tx gov submit-proposal param-change <path/to/proposal.json> \
 --from=<key_or_address> \
---chain-id=bostrom
+--chain-id=deep
 ```
 
 Where `proposal.json` is a file, structured in following way:
@@ -662,14 +662,14 @@ Few examples of real param-change proposals:
 
 ## Liquidity and pools 
 
-Cyber has Gravity-DEX module implemented, so it is possible to create pools, swap tokens and add\remove liquidity to exisitng pools: 
+deepchain has Gravity-DEX module implemented, so it is possible to create pools, swap tokens and add\remove liquidity to exisitng pools: 
 
 ```bash
 Liquidity transaction subcommands
 
 Usage:
-  cyber tx liquidity [flags]
-  cyber tx liquidity [command]
+  deepchain tx liquidity [flags]
+  deepchain tx liquidity [command]
 
 Available Commands:
   create-pool Create liquidity pool and deposit coins
@@ -690,9 +690,9 @@ New liquidity pools can be created only for coin combinations that do not alread
 Example:
 
 ```bash
-cyber tx liquidity create-pool 1 2000000milliampere,200000000000boot \
+deepchain tx liquidity create-pool 1 2000000milliampere,200000000000boot \
 --from=mykey \
---chain-id=bostrom  \
+--chain-id=deep  \
 --yes
 ```
 
@@ -706,9 +706,9 @@ All requests in a batch are treated equally and executed at the same swap price.
 Example:
 
 ```bash
-cyber tx liquidity deposit 1 100000000milliampere,50000000000boot \
+deepchain tx liquidity deposit 1 100000000milliampere,50000000000boot \
 --from=mykey \
---chain-id=bostrom
+--chain-id=deep
 ```
 
 This example request deposits 100000000milliampere and 50000000000boot to pool-id 1.
@@ -731,9 +731,9 @@ Swap orders are executed only when the execution swap price is equal to or great
 Example:
 
 ```bash
-cyber tx liquidity swap 1 1 50000000boot hydrogen 0.019 0.003 \
+deepchain tx liquidity swap 1 1 50000000boot hydrogen 0.019 0.003 \
 --from=mykey \
---chain-id=bostrom
+--chain-id=deep
 ```
 
 For this example, imagine that an existing liquidity pool has with 1000000000hydrogen and 50000000000boot.
@@ -756,7 +756,7 @@ The only supported swap-type is 1. For the detailed swap algorithm, see https://
 Usage:
 
 ```bash
-  cyber tx liquidity swap [pool-id] [swap-type] [offer-coin] [demand-coin-denom] [order-price] [swap-fee-rate] [flags]
+  deepchain tx liquidity swap [pool-id] [swap-type] [offer-coin] [demand-coin-denom] [order-price] [swap-fee-rate] [flags]
 ```
 
 ### Withdraw tokens from liquidity pool
@@ -769,9 +769,9 @@ All requests in a batch are treated equally and executed at the same swap price.
 Example:
 
 ```bash
- cyber tx liquidity withdraw 1 10000pool96EF6EA6E5AC828ED87E8D07E7AE2A8180570ADD212117B2DA6F0B75D17A6295 \
+ deepchain tx liquidity withdraw 1 10000pool96EF6EA6E5AC828ED87E8D07E7AE2A8180570ADD212117B2DA6F0B75D17A6295 \
  --from=mykey \
- --chain-id=bostrom
+ --chain-id=deep
 ```
 
 This example request withdraws 10000 pool coin from the specified liquidity pool.
@@ -783,9 +783,9 @@ The appropriate pool coin must be requested from the specified pool.
 Usage:
 
 ```bash
-  cyber tx liquidity withdraw [pool-id] [pool-coin] [flags]\
+  deepchain tx liquidity withdraw [pool-id] [pool-coin] [flags]\
   --from=<key_or_address> \
-  --chain-id=bostrom
+  --chain-id=deep
 ```
 
 ### Query existing pools
@@ -793,20 +793,20 @@ Usage:
 Query details of a liquidity pool
 
 ```bash
-cyber query liquidity pool 1
+deepchain query liquidity pool 1
 ```
 
 Example (with pool coin denom):
 
 ```bash
-cyber query liquidity pool --pool-coin-denom=[denom]
+deepchain query liquidity pool --pool-coin-denom=[denom]
 ```
 
 Query details about all liquidity pools on a network.
 Example:
 
 ```bash
-cyber query liquidity pools
+deepchain query liquidity pools
 ```
 
 ## 

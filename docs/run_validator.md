@@ -1,5 +1,5 @@
 
-# Join cyber as a Validator
+# Join deepchain as a Validator
 
 ## Prepare your server
 
