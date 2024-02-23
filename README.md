@@ -115,7 +115,7 @@ Genesis: [QmYubyVNfghD4xCrTFj26zBwrF9s5GJhi1TmxvrwmJCipr](http://cloudflare-ipfs
 
 Build: ```make install```
 
-Run: ```cyber start ```
+Run: ```deepchain start ```
 
 To use as CLI with remote node:
 ```
@@ -158,19 +158,19 @@ _________________________________________________________
 
 ### Follow Hero and get HYDROGEN:
 ```
-cyber tx staking delegate bostromvaloper1hmkqhy8ygl6tnl5g8tc503rwrmmrkjcqf92r73 1000000000boot --from <name> --chain-id bostrom --gas 200000 --gas-prices 0.01boot --yes --node https://rpc.bostrom.cybernode.ai:443   
+deepchain tx staking delegate bostromvaloper1hmkqhy8ygl6tnl5g8tc503rwrmmrkjcqf92r73 1000000000boot --from <name> --chain-id deep --gas 200000 --gas-prices 0.01boot --yes --node https://rpc.bostrom.cybernode.ai:443   
 ```
 
 ### Investmint HYDROGEN to get resources:
 ```
-cyber tx resources investmint 1000000000hydrogen millivolt 86400 --from <name> --chain-id bostrom --gas 200000 --gas-prices 0.01boot --yes --node https://rpc.bostrom.cybernode.ai:443
+deepchain tx resources investmint 1000000000hydrogen millivolt 86400 --from <name> --chain-id deep --gas 200000 --gas-prices 0.01boot --yes --node https://rpc.bostrom.cybernode.ai:443
 
-cyber tx resources investmint 1000000000hydrogen milliampere 86400 --from <name> --chain-id bostrom --gas 200000 --gas-prices 0.01boot --yes --node https://rpc.bostrom.cybernode.ai:443
+deepchain tx resources investmint 1000000000hydrogen milliampere 86400 --from <name> --chain-id deep --gas 200000 --gas-prices 0.01boot --yes --node https://rpc.bostrom.cybernode.ai:443
 ```
 
 ### Cyberlink and Search:
 ```
-cyber tx graph cyberlink QmdVWtX17m7UvF8FcvNLTJxcpxv2fSJd7Z3VBoYxxW9Qpu Qmb9xPYYwHt1F3bQysKCZzXRzAT8QLvAyMe5DyPy4rene8 --from <name> --chain-id bostrom --yes --node https://rpc.bostrom.cybernode.ai:443
+deepchain tx graph cyberlink QmdVWtX17m7UvF8FcvNLTJxcpxv2fSJd7Z3VBoYxxW9Qpu Qmb9xPYYwHt1F3bQysKCZzXRzAT8QLvAyMe5DyPy4rene8 --from <name> --chain-id deep --yes --node https://rpc.bostrom.cybernode.ai:443
 
 curl https://lcd.bostrom.cybernode.ai/rank/search?cid=QmdVWtX17m7UvF8FcvNLTJxcpxv2fSJd7Z3VBoYxxW9Qpu
 ```
