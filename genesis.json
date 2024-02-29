@@ -1,0 +1,873 @@
+{
+  "genesis_time": "2024-01-17T01:20:00Z",
+  "chain_id": "deep",
+  "initial_height": "1",
+  "consensus_params": {
+    "block": {
+      "max_bytes": "4194304",
+      "max_gas": "100000000",
+      "time_iota_ms": "1000"
+    },
+    "evidence": {
+      "max_age_num_blocks": "100000",
+      "max_age_duration": "172800000000000",
+      "max_bytes": "1048576"
+    },
+    "validator": {
+      "pub_key_types": [
+        "ed25519"
+      ]
+    },
+    "version": {}
+  },
+  "app_hash": "",
+  "app_state": {
+    "auth": {
+      "params": {
+        "max_memo_characters": "1024",
+        "tx_sig_limit": "7",
+        "tx_size_cost_per_byte": "20",
+        "sig_verify_cost_ed25519": "590",
+        "sig_verify_cost_secp256k1": "1000"
+      },
+      "accounts": [
+        {
+          "@type": "/cosmos.auth.v1beta1.BaseAccount",
+          "address": "deep14uxt2rgv2usmf0n722v9hvcfdwt6lq8lvlkaen",
+          "pub_key": null,
+          "account_number": "0",
+          "sequence": "0"
+        },
+        {
+          "@type": "/cosmos.auth.v1beta1.BaseAccount",
+          "address": "deep1sw6z22wclsypnq97jw9g5ahjfxxmfmh2azs49t",
+          "pub_key": null,
+          "account_number": "1",
+          "sequence": "0"
+        },
+        {
+          "@type": "/cosmos.auth.v1beta1.BaseAccount",
+          "address": "deep15wv872pdmx6vahldau8gakc7mjaa7z09vpua09",
+          "pub_key": null,
+          "account_number": "2",
+          "sequence": "0"
+        },
+        {
+          "@type": "/cosmos.auth.v1beta1.BaseAccount",
+          "address": "deep120cz8jrjk9n5rm09zpjnlrrtdgvwutg3ppv257",
+          "pub_key": null,
+          "account_number": "3",
+          "sequence": "0"
+        },
+        {
+          "@type": "/cosmos.auth.v1beta1.BaseAccount",
+          "address": "deep1e7vk29utkvlcunt00zvxw2smna7af9ac33uhsh",
+          "pub_key": null,
+          "account_number": "4",
+          "sequence": "0"
+        },
+        {
+          "@type": "/cosmos.auth.v1beta1.BaseAccount",
+          "address": "deep18g968vtkn9tnzz9psc2snv23v47v4zd4w4p509",
+          "pub_key": null,
+          "account_number": "5",
+          "sequence": "0"
+        },
+        {
+          "@type": "/cosmos.auth.v1beta1.BaseAccount",
+          "address": "deep1aggmn9hrgxvzzmhtphl0sz3sjjvhmn876xheg5",
+          "pub_key": null,
+          "account_number": "6",
+          "sequence": "0"
+        },
+        {
+          "@type": "/cosmos.auth.v1beta1.BaseAccount",
+          "address": "deep1nafd0v7pe5f3933ta4h9rp47nkugzcrkc9asak",
+          "pub_key": null,
+          "account_number": "7",
+          "sequence": "0"
+        },
+        {
+          "@type": "/cosmos.auth.v1beta1.BaseAccount",
+          "address": "deep1lraxc2885nx3uqjg4z2nm33gllk4psk5f5xa6c",
+          "pub_key": null,
+          "account_number": "8",
+          "sequence": "0"
+        },
+        {
+          "@type": "/cosmos.auth.v1beta1.BaseAccount",
+          "address": "deep1umgrl7hx39x9hn7y0fxxxz9sl0j7etp8r3fm26",
+          "pub_key": null,
+          "account_number": "9",
+          "sequence": "0"
+        },
+        {
+          "@type": "/cosmos.auth.v1beta1.BaseAccount",
+          "address": "deep160t7052ck3p703hcd4het7tfqsjqrxdyjn6m8q",
+          "pub_key": null,
+          "account_number": "10",
+          "sequence": "0"
+        },
+        {
+          "@type": "/cosmos.auth.v1beta1.ModuleAccount",
+          "base_account": {
+            "account_number": "11",
+            "address": "deep1jv65s3grqf6v6jl3dp4t6c9t9rk99cd87vf3p8",
+            "pub_key": null,
+            "sequence": "0"
+          },
+          "name": "distribution",
+          "permissions": []
+        }
+      ]
+    },
+    "authz": {
+      "authorization": []
+    },
+    "bandwidth": {
+      "params": {
+        "recovery_period": "16000",
+        "adjust_price_period": "5",
+        "base_price": "0.250000000000000000",
+        "max_block_bandwidth": "50000",
+        "base_load": "0.100000000000000000"
+      }
+    },
+    "bank": {
+      "params": {
+        "send_enabled": [],
+        "default_send_enabled": true
+      },
+      "balances": [
+        {
+          "address": "deep14uxt2rgv2usmf0n722v9hvcfdwt6lq8lvlkaen",
+          "coins": [
+            {
+              "denom": "energy",
+              "amount": "700000000000000"
+            }
+          ]
+        },
+        {
+          "address": "deep1sw6z22wclsypnq97jw9g5ahjfxxmfmh2azs49t",
+          "coins": [
+            {
+              "denom": "energy",
+              "amount": "160000000000000"
+            }
+          ]
+        },
+        {
+          "address": "deep15wv872pdmx6vahldau8gakc7mjaa7z09vpua09",
+          "coins": [
+            {
+              "denom": "energy",
+              "amount": "10000000000000"
+            }
+          ]
+        },
+        {
+          "address": "deep120cz8jrjk9n5rm09zpjnlrrtdgvwutg3ppv257",
+          "coins": [
+            {
+              "denom": "energy",
+              "amount": "10000000000000"
+            }
+          ]
+        },
+        {
+          "address": "deep1e7vk29utkvlcunt00zvxw2smna7af9ac33uhsh",
+          "coins": [
+            {
+              "denom": "energy",
+              "amount": "10000000000000"
+            }
+          ]
+        },
+        {
+          "address": "deep18g968vtkn9tnzz9psc2snv23v47v4zd4w4p509",
+          "coins": [
+            {
+              "denom": "energy",
+              "amount": "10000000000000"
+            }
+          ]
+        },
+        {
+          "address": "deep1aggmn9hrgxvzzmhtphl0sz3sjjvhmn876xheg5",
+          "coins": [
+            {
+              "denom": "energy",
+              "amount": "10000000000000"
+            }
+          ]
+        },
+        {
+          "address": "deep1nafd0v7pe5f3933ta4h9rp47nkugzcrkc9asak",
+          "coins": [
+            {
+              "denom": "energy",
+              "amount": "10000000000000"
+            }
+          ]
+        },
+        {
+          "address": "deep1lraxc2885nx3uqjg4z2nm33gllk4psk5f5xa6c",
+          "coins": [
+            {
+              "denom": "energy",
+              "amount": "10000000000000"
+            }
+          ]
+        },
+        {
+          "address": "deep1umgrl7hx39x9hn7y0fxxxz9sl0j7etp8r3fm26",
+          "coins": [
+            {
+              "denom": "energy",
+              "amount": "10000000000000"
+            }
+          ]
+        },
+        {
+          "address": "deep160t7052ck3p703hcd4het7tfqsjqrxdyjn6m8q",
+          "coins": [
+            {
+              "denom": "energy",
+              "amount": "10000000000000"
+            }
+          ]
+        },
+        {
+          "address": "deep1jv65s3grqf6v6jl3dp4t6c9t9rk99cd87vf3p8",
+          "coins": [
+            {
+              "amount": "50000000000000",
+              "denom": "energy"
+            }
+          ]
+        }
+      ],
+      "supply": [
+        {
+          "amount": "1000000000000000",
+          "denom": "energy"
+        }
+      ],
+      "denom_metadata": [
+        {
+          "description": "The staking token of Deep",
+          "base": "energy",
+          "display": "energy",
+          "name": "Energy token",
+          "symbol": "ENERGY",
+          "denom_units": [
+            {
+              "denom": "energy",
+              "exponent": 0,
+              "aliases": [
+                "ENERGY"
+              ]
+            }
+          ]
+        },
+        {
+          "description": "The liquid staking token of Deep",
+          "base": "hydrogen",
+          "display": "hydrogen",
+          "name": "hydrogen",
+          "symbol": "HYDROGEN",
+          "denom_units": [
+            {
+              "denom": "hydrogen",
+              "exponent": 0,
+              "aliases": [
+                "HYDROGEN"
+              ]
+            }
+          ]
+        },
+        {
+          "description": "The power token of Deep",
+          "base": "milliampere",
+          "display": "ampere",
+          "name": "Deep Ampere",
+          "symbol": "AMPERE",
+          "denom_units": [
+            {
+              "denom": "milliampere",
+              "exponent": 0,
+              "aliases": []
+            },
+            {
+              "denom": "ampere",
+              "exponent": 3,
+              "aliases": [
+                "AMPERE"
+              ]
+            }
+          ]
+        },
+        {
+          "description": "The bandwidth token of Deep",
+          "base": "millivolt",
+          "display": "volt",
+          "name": "Deep Volt",
+          "symbol": "VOLT",
+          "denom_units": [
+            {
+              "denom": "millivolt",
+              "exponent": 0,
+              "aliases": []
+            },
+            {
+              "denom": "volt",
+              "exponent": 3,
+              "aliases": [
+                "VOLT"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "capability": {
+      "index": "1",
+      "owners": []
+    },
+    "crisis": {
+      "constant_fee": {
+        "denom": "energy",
+        "amount": "10000000"
+      }
+    },
+    "cyberbank": null,
+    "distribution": {
+      "params": {
+        "community_tax": "0.000000000000000000",
+        "base_proposer_reward": "0.010000000000000000",
+        "bonus_proposer_reward": "0.030000000000000000",
+        "withdraw_addr_enabled": true
+      },
+      "fee_pool": {
+        "community_pool": [
+          {
+            "amount": "50000000000000",
+            "denom": "energy"
+          }
+        ]
+      },
+      "delegator_withdraw_infos": [],
+      "previous_proposer": "",
+      "outstanding_rewards": [],
+      "validator_accumulated_commissions": [],
+      "validator_historical_rewards": [],
+      "validator_current_rewards": [],
+      "delegator_starting_infos": [],
+      "validator_slash_events": []
+    },
+    "dmn": {
+      "params": {
+        "max_slots": 4,
+        "max_gas": 5000000,
+        "fee_ttl": 50
+      }
+    },
+    "evidence": {
+      "evidence": []
+    },
+    "feegrant": {
+      "allowances": []
+    },
+    "genutil": {
+      "gen_txs": [
+        {
+          "body": {
+            "messages": [
+              {
+                "@type": "/cosmos.staking.v1beta1.MsgCreateValidator",
+                "description": {
+                  "moniker": "validator",
+                  "identity": "",
+                  "website": "",
+                  "security_contact": "",
+                  "details": ""
+                },
+                "commission": {
+                  "rate": "0.100000000000000000",
+                  "max_rate": "0.200000000000000000",
+                  "max_change_rate": "0.010000000000000000"
+                },
+                "min_self_delegation": "1",
+                "delegator_address": "deep120cz8jrjk9n5rm09zpjnlrrtdgvwutg3ppv257",
+                "validator_address": "deepvaloper120cz8jrjk9n5rm09zpjnlrrtdgvwutg363lcul",
+                "pubkey": {
+                  "@type": "/cosmos.crypto.ed25519.PubKey",
+                  "key": "CHPLBIrBl+i4hcqraahBY+lLMZXbZhcOPFDFn/guv6Y="
+                },
+                "value": {
+                  "denom": "energy",
+                  "amount": "1000000000000"
+                }
+              }
+            ],
+            "memo": "3c12fbf6d59a643e3473bda17230b330eb75a9c0@149.102.136.233:26656",
+            "timeout_height": "0",
+            "extension_options": [],
+            "non_critical_extension_options": []
+          },
+          "auth_info": {
+            "signer_infos": [
+              {
+                "public_key": {
+                  "@type": "/cosmos.crypto.secp256k1.PubKey",
+                  "key": "AmNYt9BqipaNhg48Z4x/4Z3P7w0BiEV0eBToUfe9OiqO"
+                },
+                "mode_info": {
+                  "single": {
+                    "mode": "SIGN_MODE_DIRECT"
+                  }
+                },
+                "sequence": "0"
+              }
+            ],
+            "fee": {
+              "amount": [],
+              "gas_limit": "200000",
+              "payer": "",
+              "granter": ""
+            }
+          },
+          "signatures": [
+            "Ts9ckLa1i9fj7uPB5NxDt1q26NKZPloUiezK3PuxR/gnGCwTQDxzUMl+I8C6VYnQCwGVm9bZJVIbuPniCuAnCQ=="
+          ]
+        },
+        {
+          "body": {
+            "messages": [
+              {
+                "@type": "/cosmos.staking.v1beta1.MsgCreateValidator",
+                "description": {
+                  "moniker": "validator",
+                  "identity": "",
+                  "website": "",
+                  "security_contact": "",
+                  "details": ""
+                },
+                "commission": {
+                  "rate": "0.100000000000000000",
+                  "max_rate": "0.200000000000000000",
+                  "max_change_rate": "0.010000000000000000"
+                },
+                "min_self_delegation": "1",
+                "delegator_address": "deep1aggmn9hrgxvzzmhtphl0sz3sjjvhmn876xheg5",
+                "validator_address": "deepvaloper1aggmn9hrgxvzzmhtphl0sz3sjjvhmn87pkytq4",
+                "pubkey": {
+                  "@type": "/cosmos.crypto.ed25519.PubKey",
+                  "key": "Qwi8mnyI74rufI2NYR1lZv6Upf6T9EVeJnl0K86y/uI="
+                },
+                "value": {
+                  "denom": "energy",
+                  "amount": "1000000000000"
+                }
+              }
+            ],
+            "memo": "85ff4225484a6a47e56e64801302e4c8e7b29318@10.0.5.2:26656",
+            "timeout_height": "0",
+            "extension_options": [],
+            "non_critical_extension_options": []
+          },
+          "auth_info": {
+            "signer_infos": [
+              {
+                "public_key": {
+                  "@type": "/cosmos.crypto.secp256k1.PubKey",
+                  "key": "AmqWtNj6uH+cUi61ANqFPkhckT0ttv4qyl6BVZ/N+Enz"
+                },
+                "mode_info": {
+                  "single": {
+                    "mode": "SIGN_MODE_DIRECT"
+                  }
+                },
+                "sequence": "0"
+              }
+            ],
+            "fee": {
+              "amount": [],
+              "gas_limit": "200000",
+              "payer": "",
+              "granter": ""
+            }
+          },
+          "signatures": [
+            "nkYLmR4mnuSewMmYYv/HyO3JofmIWcPZu8HiikP+Gm5aw+CknYouh4Q2sMmvo5YO+Oxke1U5zcBIWq0O/+CGLw=="
+          ]
+        },
+        {
+          "body": {
+            "messages": [
+              {
+                "@type": "/cosmos.staking.v1beta1.MsgCreateValidator",
+                "description": {
+                  "moniker": "gitpodio-empty-aun78tkkamb",
+                  "identity": "",
+                  "website": "",
+                  "security_contact": "",
+                  "details": ""
+                },
+                "commission": {
+                  "rate": "0.100000000000000000",
+                  "max_rate": "0.200000000000000000",
+                  "max_change_rate": "0.010000000000000000"
+                },
+                "min_self_delegation": "1",
+                "delegator_address": "deep18g968vtkn9tnzz9psc2snv23v47v4zd4w4p509",
+                "validator_address": "deepvaloper18g968vtkn9tnzz9psc2snv23v47v4zd449jx8y",
+                "pubkey": {
+                  "@type": "/cosmos.crypto.ed25519.PubKey",
+                  "key": "aiQY309Hvf2z/hVPhhdYzM3DiggSAfsI28QWquRGWQQ="
+                },
+                "value": {
+                  "denom": "energy",
+                  "amount": "100000000000"
+                }
+              }
+            ],
+            "memo": "f3f5448313d028d5ccc611a8df4942f95c0c284d@10.0.5.2:26656",
+            "timeout_height": "0",
+            "extension_options": [],
+            "non_critical_extension_options": []
+          },
+          "auth_info": {
+            "signer_infos": [
+              {
+                "public_key": {
+                  "@type": "/cosmos.crypto.secp256k1.PubKey",
+                  "key": "AyAJZdlw8GEElNBuwoxq1xD7NuEZMARfd3LEtGs/uGlq"
+                },
+                "mode_info": {
+                  "single": {
+                    "mode": "SIGN_MODE_DIRECT"
+                  }
+                },
+                "sequence": "0"
+              }
+            ],
+            "fee": {
+              "amount": [],
+              "gas_limit": "200000",
+              "payer": "",
+              "granter": ""
+            }
+          },
+          "signatures": [
+            "tD7icdu1XGZrKJ43EDZ2DAZhHeDGorTysc348jeq7ilIhp+njCYpOEB9VGsPnp2Ht7fCsQsPTuxvG+QStQpUzQ=="
+          ]
+        },
+        {
+          "body": {
+            "messages": [
+              {
+                "@type": "/cosmos.staking.v1beta1.MsgCreateValidator",
+                "description": {
+                  "moniker": "validator",
+                  "identity": "",
+                  "website": "",
+                  "security_contact": "",
+                  "details": ""
+                },
+                "commission": {
+                  "rate": "0.100000000000000000",
+                  "max_rate": "0.200000000000000000",
+                  "max_change_rate": "0.010000000000000000"
+                },
+                "min_self_delegation": "1",
+                "delegator_address": "deep1lraxc2885nx3uqjg4z2nm33gllk4psk5f5xa6c",
+                "validator_address": "deepvaloper1lraxc2885nx3uqjg4z2nm33gllk4psk5jy40je",
+                "pubkey": {
+                  "@type": "/cosmos.crypto.ed25519.PubKey",
+                  "key": "/OwPTIQ2iZU3B5RK/+1+q9tOmtDPzHdTD+X2j3dwxNM="
+                },
+                "value": {
+                  "denom": "energy",
+                  "amount": "100000000000"
+                }
+              }
+            ],
+            "memo": "4f83b1002b84693b3238c84c8c7d6a0e8bafff1a@10.0.5.2:26656",
+            "timeout_height": "0",
+            "extension_options": [],
+            "non_critical_extension_options": []
+          },
+          "auth_info": {
+            "signer_infos": [
+              {
+                "public_key": {
+                  "@type": "/cosmos.crypto.secp256k1.PubKey",
+                  "key": "ArGismherNeif/874RND9zzv6p9vtLKdewlmW0WZ3X9A"
+                },
+                "mode_info": {
+                  "single": {
+                    "mode": "SIGN_MODE_DIRECT"
+                  }
+                },
+                "sequence": "0"
+              }
+            ],
+            "fee": {
+              "amount": [],
+              "gas_limit": "200000",
+              "payer": "",
+              "granter": ""
+            }
+          },
+          "signatures": [
+            "3dGCUCp3hwP7VOfRq2hGaAjv4L7R9c2nkXLDfXgHBSpAszslJGmzLEMjf4+jnLWq9GivwOBf9ZlG2+3jowfxyw=="
+          ]
+        },
+        {
+          "body": {
+            "messages": [
+              {
+                "@type": "/cosmos.staking.v1beta1.MsgCreateValidator",
+                "description": {
+                  "moniker": "timaxhack-deepchain-smlg8jogit0",
+                  "identity": "",
+                  "website": "",
+                  "security_contact": "",
+                  "details": ""
+                },
+                "commission": {
+                  "rate": "0.100000000000000000",
+                  "max_rate": "0.200000000000000000",
+                  "max_change_rate": "0.010000000000000000"
+                },
+                "min_self_delegation": "1",
+                "delegator_address": "deep1nafd0v7pe5f3933ta4h9rp47nkugzcrkc9asak",
+                "validator_address": "deepvaloper1nafd0v7pe5f3933ta4h9rp47nkugzcrkr4wz4h",
+                "pubkey": {
+                  "@type": "/cosmos.crypto.ed25519.PubKey",
+                  "key": "nSZJ153KSXkaJV4L4gkCcUw6iF7T9/Ga281tkxxlbCk="
+                },
+                "value": {
+                  "denom": "energy",
+                  "amount": "100000000000"
+                }
+              }
+            ],
+            "memo": "ed830cb521b0007fc406b83aa2c1343a42ce0d62@10.0.5.2:26656",
+            "timeout_height": "0",
+            "extension_options": [],
+            "non_critical_extension_options": []
+          },
+          "auth_info": {
+            "signer_infos": [
+              {
+                "public_key": {
+                  "@type": "/cosmos.crypto.secp256k1.PubKey",
+                  "key": "A9W9lHmi6l0x+E+6ORzvm2m7UWsRYZqgDFJ61v/BO9nS"
+                },
+                "mode_info": {
+                  "single": {
+                    "mode": "SIGN_MODE_DIRECT"
+                  }
+                },
+                "sequence": "0"
+              }
+            ],
+            "fee": {
+              "amount": [],
+              "gas_limit": "200000",
+              "payer": "",
+              "granter": ""
+            }
+          },
+          "signatures": [
+            "ZiWJ+HHt7DwqS7TOPJmAJYz88fEpsCFvGG8Ybh4LkHxMlDyLPdhbhZD+3JXY4fnwDXGYb/DGswS+pepXHbvKPg=="
+          ]
+        }
+      ]
+    },
+    "gov": {
+      "starting_proposal_id": "1",
+      "deposits": [],
+      "votes": [],
+      "proposals": [],
+      "deposit_params": {
+        "min_deposit": [
+          {
+            "denom": "energy",
+            "amount": "1000000000"
+          }
+        ],
+        "max_deposit_period": "86400s"
+      },
+      "voting_params": {
+        "voting_period": "86400s"
+      },
+      "tally_params": {
+        "quorum": "0.250000000000000000",
+        "threshold": "0.500000000000000000",
+        "veto_threshold": "0.250000000000000000"
+      }
+    },
+    "graph": null,
+    "grid": {
+      "params": {
+        "max_routes": 16
+      },
+      "routes": []
+    },
+    "ibc": {
+      "client_genesis": {
+        "clients": [],
+        "clients_consensus": [],
+        "clients_metadata": [],
+        "params": {
+          "allowed_clients": [
+            "06-solomachine",
+            "07-tendermint"
+          ]
+        },
+        "create_localhost": false,
+        "next_client_sequence": "0"
+      },
+      "connection_genesis": {
+        "connections": [],
+        "client_connection_paths": [],
+        "next_connection_sequence": "0",
+        "params": {
+          "max_expected_time_per_block": "30000000000"
+        }
+      },
+      "channel_genesis": {
+        "channels": [],
+        "acknowledgements": [],
+        "commitments": [],
+        "receipts": [],
+        "send_sequences": [],
+        "recv_sequences": [],
+        "ack_sequences": [],
+        "next_channel_sequence": "0"
+      }
+    },
+    "liquidity": {
+      "params": {
+        "pool_types": [
+          {
+            "id": 1,
+            "name": "StandardLiquidityPool",
+            "min_reserve_coin_num": 2,
+            "max_reserve_coin_num": 2,
+            "description": "Standard liquidity pool with pool price function X/Y, ESPM constraint, and two kinds of reserve coins"
+          }
+        ],
+        "min_init_deposit_amount": "1000000",
+        "init_pool_coin_mint_amount": "1000000000000",
+        "max_reserve_coin_amount": "0",
+        "pool_creation_fee": [
+          {
+            "denom": "energy",
+            "amount": "1000000000"
+          }
+        ],
+        "swap_fee_rate": "0.003000000000000000",
+        "withdraw_fee_rate": "0.003000000000000000",
+        "max_order_amount_ratio": "0.100000000000000000",
+        "unit_batch_height": 1,
+        "circuit_breaker_enabled": false
+      },
+      "pool_records": []
+    },
+    "mint": {
+      "minter": {
+        "inflation": "0.020000000000000000",
+        "annual_provisions": "0.000000000000000000"
+      },
+      "params": {
+        "mint_denom": "energy",
+        "inflation_rate_change": "0.010000000000000000",
+        "inflation_max": "0.050000000000000000",
+        "inflation_min": "0.020000000000000000",
+        "goal_bonded": "0.250000000000000000",
+        "blocks_per_year": "6311520"
+      }
+    },
+    "params": null,
+    "rank": {
+      "params": {
+        "calculation_period": "10",
+        "damping_factor": "0.800000000000000000",
+        "tolerance": "0.001000000000000000"
+      }
+    },
+    "resources": {
+      "params": {
+        "max_slots": 16,
+        "halving_period_volt_blocks": 6000000,
+        "halving_period_ampere_blocks": 6000000,
+        "base_investmint_period_volt": 2592000,
+        "base_investmint_period_ampere": 2592000,
+        "min_investmint_period": 86400,
+        "base_investmint_amount_volt": {
+          "denom": "hydrogen",
+          "amount": "1000000000"
+        },
+        "base_investmint_amount_ampere": {
+          "denom": "hydrogen",
+          "amount": "100000000"
+        }
+      }
+    },
+    "slashing": {
+      "params": {
+        "signed_blocks_window": "10000",
+        "min_signed_per_window": "0.050000000000000000",
+        "downtime_jail_duration": "600s",
+        "slash_fraction_double_sign": "0.050000000000000000",
+        "slash_fraction_downtime": "0.000100000000000000"
+      },
+      "signing_infos": [],
+      "missed_blocks": []
+    },
+    "staking": {
+      "params": {
+        "unbonding_time": "604800s",
+        "max_validators": 42,
+        "max_entries": 21,
+        "historical_entries": 10000,
+        "bond_denom": "energy"
+      },
+      "last_total_power": "0",
+      "last_validator_powers": [],
+      "validators": [],
+      "delegations": [],
+      "unbonding_delegations": [],
+      "redelegations": [],
+      "exported": false
+    },
+    "transfer": {
+      "port_id": "transfer",
+      "denom_traces": [],
+      "params": {
+        "send_enabled": true,
+        "receive_enabled": true
+      }
+    },
+    "upgrade": {},
+    "vesting": {},
+    "wasm": {
+      "params": {
+        "code_upload_access": {
+          "permission": "Everybody",
+          "address": ""
+        },
+        "instantiate_default_permission": "Everybody"
+      },
+      "codes": [],
+      "contracts": [],
+      "sequences": [],
+      "gen_msgs": []
+    }
+  }
+}

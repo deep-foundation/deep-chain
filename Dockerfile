@@ -42,13 +42,13 @@ RUN apt-get -y install --no-install-recommends \
     software-properties-common \
 #    nvidia-cuda-toolkit \
 # Install cuda selected version instead nvidia-cuda-toolkit
-&& wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/cuda-ubuntu2004.pin \
-&& mv cuda-ubuntu2004.pin /etc/apt/preferences.d/cuda-repository-pin-600 \
-&& apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/3bf863cc.pub \
-&& add-apt-repository "deb https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/ /" \
-&& apt-get update \
-&& apt-get install cuda=${CUDA_VER} -y --no-install-recommends \
-&& mkdir -p /deepchain/cosmovisor/genesis/bin \
+# && wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/cuda-ubuntu2004.pin \
+# && mv cuda-ubuntu2004.pin /etc/apt/preferences.d/cuda-repository-pin-600 \
+# && apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/3bf863cc.pub \
+# && add-apt-repository "deb https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/ /" \
+# && apt-get update \
+# && apt-get install cuda=${CUDA_VER} -y --no-install-recommends \
+# && mkdir -p /deepchain/cosmovisor/genesis/bin \
 # Compile deepchain for genesis version
 ###########################################################################################
 && cd /sources/x/rank/cuda \
@@ -85,7 +85,7 @@ RUN apt-get -y install --no-install-recommends \
 WORKDIR /
 COPY start_script.sh start_script.sh
 COPY entrypoint.sh /entrypoint.sh
-RUN wget -O /genesis.json https://gateway.ipfs.cybernode.ai/ipfs/QmYubyVNfghD4xCrTFj26zBwrF9s5GJhi1TmxvrwmJCipr \
+RUN wget -O /genesis.json https://raw.githubusercontent.com/deep-foundation/deep-chain/main/genesis.json \
 && chmod +x start_script.sh \
 && chmod +x /entrypoint.sh \
 && deepchain version
