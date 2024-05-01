@@ -23,7 +23,7 @@ func calculateRankCPU(ctx *types.CalculationContext) types.EMState {
 
 	rank := make([]float64, size)
 	entropy := make([]float64, size)
-	karma := make([]float64, len(ctx.GetStakes()))
+	karma := make([]float64, len(ctx.GetStakes())+1)
 	defaultRank := (1.0 - dampingFactor) / float64(size)
 	danglingNodesSize := uint64(0)
 
