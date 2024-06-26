@@ -15,9 +15,6 @@ ENV UNSAFE_SKIP_BACKUP=true
 ENV DAEMON_NAME deepchain
 ENV BUILD_DIR /build
 ENV PATH /usr/local/go/bin:/root/.cargo/bin:/root/cargo/env:/root/.deepchain/scripts:$PATH
-ENV CUDA_VER '11.4.4-1'
-ENV PATH="/usr/local/go/bin:/usr/local/cuda/bin:$PATH"
-
 
 # Install go and required deps
 ###########################################################################################
@@ -28,11 +25,10 @@ RUN apt-get update && apt-get install -y --no-install-recommends wget ca-certifi
 && rm go.tgz \
 && go version 
 
-
 COPY . /sources
 WORKDIR /sources
 
-# Install CUDA, build tools and compile deepchain
+# Install build tools and compile deepchain
 ###########################################################################################
 RUN apt-get -y install --no-install-recommends \
     make gcc g++ \
@@ -40,45 +36,25 @@ RUN apt-get -y install --no-install-recommends \
     gnupg \
     git \
     software-properties-common \
-#    nvidia-cuda-toolkit \
-# Install cuda selected version instead nvidia-cuda-toolkit
-# && wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/cuda-ubuntu2004.pin \
-# && mv cuda-ubuntu2004.pin /etc/apt/preferences.d/cuda-repository-pin-600 \
-# && apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/3bf863cc.pub \
-# && add-apt-repository "deb https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/ /" \
-# && apt-get update \
-# && apt-get install cuda=${CUDA_VER} -y --no-install-recommends \
-# && mkdir -p /deepchain/cosmovisor/genesis/bin \
+&& mkdir -p /deepchain/bin \
 # Compile deepchain for genesis version
 ###########################################################################################
-&& cd /sources/x/rank/cuda \
-&& make build \
 && cd /sources \
 && make build CUDA_ENABLED=false \
-&& cp ./build/deepchain /deepchain/cosmovisor/genesis/bin/ \
+&& cp ./build/deepchain /deepchain/bin/ \
 && cp ./build/deepchain /usr/local/bin \
 && rm -rf ./build \
 # Cleanup 
 ###########################################################################################
 && apt-get purge -y git \
     make \
-    cuda \
     gcc g++ \
     curl \
     gnupg \
     python3.8 \
 && go clean --cache -i \
-&& apt-get remove --purge '^nvidia-.*' -y \
 && apt-get autoremove -y \
 && apt-get clean 
-
-# Install cosmovisor
-###########################################################################################
- RUN wget -O cosmovisor.tgz https://github.com/cosmos/cosmos-sdk/releases/download/cosmovisor%2Fv1.1.0/cosmovisor-v1.1.0-linux-amd64.tar.gz \
- && tar -xzf cosmovisor.tgz \
- && cp cosmovisor /usr/bin/cosmovisor \
- && chmod +x /usr/bin/cosmovisor \
- && rm cosmovisor.tgz && rm -fR $BUILD_DIR/* && rm -fR $BUILD_DIR/.*[a-z]
 
 # Copy startup scripts and genesis
 ###########################################################################################
@@ -89,7 +65,6 @@ RUN wget -O /genesis.json https://raw.githubusercontent.com/deep-foundation/deep
 && chmod +x start_script.sh \
 && chmod +x /entrypoint.sh \
 && deepchain version
-
 
 #  Start
 ###############################################################################
