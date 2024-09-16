@@ -1,9 +1,9 @@
 # A guide for creating a 2 of 3 multisig account and sending transactions
 
-To follow this guide you'll need `cyber` installed and connected to any cyber node (refer to our cli [guide](https://github.com/cybercongress/go-cyber/blob/main/docs/ultimate-commands-guide.md)).
+To follow this guide you'll need `deepchain` installed and connected to any cyber node (refer to our cli [guide](https://github.com/cybercongress/go-cyber/blob/main/docs/ultimate-commands-guide.md)).
 A reminder: this guide covers all types of transactions, not only send transactions. This guide is also relevant for Cosmos Hub Gaiacli users, except for the bandwidth params, in Cosmos we pay a fee using tokens.
 
-Do not forget about the `--chain-id` flag in `cyber`, and in the `Cosmos Hub` networks.
+Do not forget about the `--chain-id` flag in `deepchain`, and in the `Cosmos Hub` networks.
 You can always get the current `<chain-id>` in the master branch of the [repository](https://github.com/cybercongress/go-cyber).
 
 ## Creating a multisig
@@ -13,14 +13,14 @@ The multisig account creation and sending transactions are simple and clear but 
 1. Import or create a thresholder accounts for multisig:
 
 ```bash
-cyber keys add test1
-cyber keys add test2
+deepchain keys add test1
+deepchain keys add test2
 ```
 
 2. Add pubkeys of remote thresholder accounts:
 
 ```bash
-cyber keys add test3 --pubkey=<thresholder_pub_key>
+deepchain keys add test3 --pubkey=<thresholder_pub_key>
 ```
 
 We now have 3 accounts for multisig account generating:
@@ -29,13 +29,13 @@ We now have 3 accounts for multisig account generating:
 All the created and imported accounts can be checked with:
 
 ```bash
-cyber keys list
+deepchain keys list
 ```
 
 3. Now, we can create and test the 2-of-3 multisig account, named for example: `multitest1` with keys `test1`,`test2` on a local machine and `test3` on a remote thresholder:
 
 ```bash
-cyber keys add multitest1 --multisig=test1,test2,test3 --multisig-threshold=2
+deepchain keys add multitest1 --multisig=test1,test2,test3 --multisig-threshold=2
 ```
 
 4. You should top up the balance of your multisig account. Make sure that you have enough bandwidth to execute transactions later.
@@ -45,7 +45,7 @@ cyber keys add multitest1 --multisig=test1,test2,test3 --multisig-threshold=2
 5. Create an unsigned transaction from the multisig account and store it in the `unsigned.json` file:
 
 ```bash
-cyber tx send <recipient_address> <amount>boot \
+deepchain tx send <recipient_address> <amount>boot \
 --from=<multisig_address> \
 --chain-id=<chain_id> \
 --generate-only > unsigned.json
@@ -54,7 +54,7 @@ cyber tx send <recipient_address> <amount>boot \
 6. Sign this transaction with the following command and then store the signed file in `sign1.json`:
 
 ```bash
-cyber tx sign unsigned.json --multisig=<multisig_address> \
+deepchain tx sign unsigned.json --multisig=<multisig_address> \
 --from=<your_account_name> \
 --output-document=sign1.json \
 --chain-id=<chain_id>
@@ -83,14 +83,14 @@ Your cli-home folder should content 3 `.json` files:
 10. Generate a multisig transaction with all signatures:
 
 ```bash
-cyber tx multisign unsigned.json multitest1 sign1.json sign2.json \
+deepchain tx multisign unsigned.json multitest1 sign1.json sign2.json \
 --chain-id=<chain_id> > signed.json
 ```
 
 11. Finally, we need to broadcast this transaction to the network:
 
 ```bash
-cyber tx broadcast signed.json --chain-id=<chain_id>
+deepchain tx broadcast signed.json --chain-id=<chain_id>
 ```
 
 If the multisig account has enough bandwidth, the transaction should be broadcasted to the network.
